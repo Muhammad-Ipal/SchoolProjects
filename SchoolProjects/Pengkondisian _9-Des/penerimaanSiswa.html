@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html translate="no">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 90vh;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      padding: 20px 16px;
+      background-color: #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      width: 380px;
+      border-radius: 0.8rem;
+    }
+
+    #nilai {
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border: none;
+    }
+
+    .result {
+      background-color: #fff;
+      width: 100%;
+      min-height: 90px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .result p {
+      margin: 3px 0 12px 0;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    button {
+      background-color: rgb(0, 221, 0);
+      border: none;
+      padding: 5px;
+    }
+
+    button:active {
+      background-color: rgb(0, 255, 0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <input type="number" id="nilai" placeholder="Input Nilai">
+    <button onclick="cekNilai()">Submit</button>
+
+    <div class="result"></div>
+
+  </div>
+
+  <script>
+    function cekNilai() {
+      let nilai = document.getElementById('nilai').value;
+      let resultContainer = document.querySelector('.result');
+      resultContainer.innerHTML = '';
+
+      if (nilai >= 90 && nilai <= 100) {
+        const text = document.createElement('p');
+        text.textContent = `Anda lolos dengan Nilai ${nilai}`;
+        resultContainer.appendChild(text);
+      } else if (nilai < 90 && nilai >= 80) {
+        const text = document.createElement('p');
+        text.textContent = 'Pilih Jalur';
+        resultContainer.appendChild(text);
+
+        const buttonGroup = document.createElement('div');
+        buttonGroup.classList.add('button-group');
+
+        const jalurPrestasi = document.createElement('button');
+        jalurPrestasi.textContent = 'Jalur Prestasi';
+        jalurPrestasi.addEventListener('click', () => {
+          const text = document.createElement('p');
+          text.textContent = 'Jalur Prestasi dipilih';
+          resultContainer.appendChild(text);
+          resultContainer.removeChild(buttonGroup);
+        });
+
+        const jalurRaport = document.createElement('button');
+        jalurRaport.textContent = 'Jalur Raport';
+        jalurRaport.addEventListener('click', () => {
+          const text = document.createElement('p');
+          text.textContent = 'Jalur Raport dipilih';
+          resultContainer.appendChild(text);
+          resultContainer.removeChild(buttonGroup);
+        });
+
+        buttonGroup.appendChild(jalurPrestasi);
+        buttonGroup.appendChild(jalurRaport);
+        resultContainer.appendChild(buttonGroup);
+      } else if (nilai < 80) {
+        const text = document.createElement('p');
+        text.textContent = 'Input Nilai Tes Mandiri';
+
+        const tesMandiriInput = document.createElement('input');
+        tesMandiriInput.type = 'text';
+        tesMandiriInput.id = 'tesMandiri';
+        resultContainer.appendChild(text);
+        resultContainer.appendChild(tesMandiriInput);
+
+        const jalurMandiri = document.createElement('button');
+        jalurMandiri.textContent = 'Submit';
+        jalurMandiri.addEventListener('click', () => {
+          let tesMandiri = document.getElementById('tesMandiri').value;
+
+          if (tesMandiri >= 80 && tesMandiri <= 100) {
+            text.textContent = `Anda Lolos dengan nilai Tes Mandiri ${tesMandiri}`;
+          } else if (tesMandiri < 80) {
+            text.textContent = 'Anda Tidak Lolos';
+          } else {
+            text.textContent = 'Nilai Tidak Valid';
+          }
+
+          resultContainer.removeChild(jalurMandiri);
+          resultContainer.removeChild(tesMandiriInput);
+          resultContainer.appendChild(text);
+        });
+
+        resultContainer.appendChild(jalurMandiri).style.marginTop = '5px';
+      } else {
+        const invalidValue = document.createElement('p');
+        invalidValue.textContent = 'Nilai Tidak Valid';
+        resultContainer.appendChild(invalidValue);
+      }
+    }
+  </script>
+
+
+</body>
+
+</body>
+
+</html>

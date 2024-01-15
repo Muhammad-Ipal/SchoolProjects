@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let nama = prompt('Masukan nama');
+    let gajiKotor = parseFloat(prompt('Masukan Gaji'));
+
+    let tunjangan = gajiKotor * 0.20;
+    let pajak = gajiKotor * 0.15;
+
+    console.log('Nama =', nama);
+    console.log('Tunjangan =', tunjangan);
+    console.log('pajak =', pajak);
+    console.log('gaji bersih =', gajiKotor + tunjangan - pajak)
+  </script>
+</body>
+</html>

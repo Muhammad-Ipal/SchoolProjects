@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenis Bilangan</title>
+</head>
+
+<body>
+  <script>
+
+    function tentukanJenisBilangan() {
+      let angka = parseFloat(prompt('Masukkan angka: '));
+      let angkaStr = angka.toString();
+
+      for (let i = 0; i < angkaStr.length; i++) {
+        let digit = angkaStr[i];
+        let posisi = angkaStr.length - i;
+
+        console.log(`${digit} adalah ${posisi === 1 ? 'satuan' : posisi === 2 ? 'puluhan' : posisi === 3 ? 'ratusan' : 'ribuan'}`);
+      }
+    }
+    tentukanJenisBilangan();
+  </script>
+</body>
+
+</html>

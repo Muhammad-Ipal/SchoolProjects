@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Looping</title>
+</head>
+
+<body>
+  <script>
+
+    let x = 1;
+    while (x <= 5) {
+      console.log('Data X ke : ' + x)
+      x++;
+    }
+
+    let y = 10;
+
+    do {
+      console.log('Data y ke : ' + y)
+      y--;
+    } while (y >= 6);
+
+
+    for (let z = 1; z <= 5; z++) {
+      console.log('Data Z ke ' + z);
+    }
+
+    ////////////////////////////////////////
+
+    for (let no = 0; no <= 30; no++) {
+      if (no % 2 === 1) {
+        console.log(no, 'Adalah Ganjil');
+      } else if (no % 2 === 0) {
+        console.log(no, 'Adalah Genap');
+      }
+    }
+
+    let n = 0;
+    while (n <= 30) {
+      if (n % 2 === 1) {
+        console.log(n, 'Adalah Ganjil');
+      } else if (n % 2 === 0) {
+        console.log(n, 'Adalah Genap');
+      }
+      n++;
+    }
+
+    let d = 0;
+    do {
+      if (d % 2 === 1) {
+        console.log(d, 'Adalah Ganjil');
+      } else if (d % 2 === 0) {
+        console.log(d, 'Adalah Genap');
+      }
+      d++;
+    } while (d <= 30);
+
+    ////////////////////////////////////////
+
+    let bilangan = 5;
+    let faktorF = 1;
+
+    for (let f = bilangan; f >= 1; f--) {
+      faktorF *= f;
+    }
+    console.log(`For - Faktorial: ${bilangan} adalah ${faktorF}`);
+
+    //-------------
+
+    let bilWhile = 5;
+    let faktorW = 1;
+    let w = bilWhile;
+
+    while (w >= 1) {
+      faktorW *= w;
+      w--;
+    }
+    console.log(`While - Faktorial: ${bilWhile} adalah ${faktorW}`);
+
+    //-------------
+
+    let bilDoWhile = 5;
+    let faktorDw = 1;
+    let Dw = bilDoWhile;
+
+    do {
+      faktorDw *= Dw;
+      Dw--;
+      console.log(`Do-while - Faktorial: ${bilDoWhile} adalah ${faktorDw}`);
+    } while (Dw >= 1);
+
+    // ------------ Function Loop
+
+    function faktorial(n) {
+      if (n == 0) return 1;
+      return n * faktorial(n - 1);
+    }
+    console.log(`Faktor: ${faktorial(5)}`);
+
+
+  </script>
+</body>
+
+</html>

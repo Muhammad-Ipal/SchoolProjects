@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1 id="result" style="color: red;"></h1>
+
+  <script>
+
+
+    let nilai = prompt('Masukkan Angka: ');
+
+    if (!isNaN(nilai)) {
+      nilai = parseInt(nilai);
+      if (nilai % 2 === 0 && nilai > 0) {
+        alert('Genap (Positif)');
+        console.log(nilai + ' adalah Genap (Positif)');
+        document.body.innerHTML = nilai + ' adalah Genap (Positif)';
+      }
+
+      else if (nilai % 2 === 0 && nilai < 0) {
+        alert('Genap (Negatif)');
+        console.log(nilai + ' adalah Genap (Negatif)');
+        document.body.innerHTML = nilai + ' adalah Genap (Negatif)';
+      }
+
+      else if (nilai % 2 === 1) {
+        alert('Ganjil (Positif)');
+        console.log(nilai + ' adalah Ganjil (Positif)');
+        document.body.innerHTML = nilai + ' adalah Ganjil (Positif)';
+      }
+
+      else if (nilai % 2 === -1 && nilai < 0) {
+        alert('Ganjil (Negatif)');
+        console.log(nilai + ' adalah Ganjil (Negatif)');
+        document.body.innerHTML = nilai + ' adalah Ganjil (Negatif)';
+      }
+    }
+
+    else {      alert('Nilai tidak Valid');
+    }
+
+
+  </script>
+
+</body>
+
+</html>

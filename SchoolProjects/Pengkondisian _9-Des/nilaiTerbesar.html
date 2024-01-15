@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilangan Terbesar</title>
+</head>
+<body>
+
+  <h1 id="result" style="color: red;"></h1>
+
+    <script>
+
+  let a = 100;
+  let b = 200;
+  let c = 30;
+
+  if (a > b && a > c) {
+    console.log(a + ' adalah Nilai terbesar');
+    document.getElementById('result').innerText += a + ' adalah Nilai terbesar';
+  }
+
+  else if (b > a && b > c) {
+    console.log(b + ' adalah Nilai terbesar');
+    document.getElementById('result').innerText += b + ' adalah Nilai terbesar';
+  }
+
+  else if (c > a && c > b) {
+    console.log(c + ' adalah Nilai terbesar');
+    document.getElementById('result').innerText += c + ' adalah Nilai terbesar';
+  }
+
+  else if (a === b && b === c) {
+    console.log('Nilai yang anda masukan sama');
+    document.getElementById('result').innerText = ' Nilai yang anda masukan sama';
+  }
+
+
+    </script>
+  
+</body>
+</html>
