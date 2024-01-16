@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waktu</title>
+</head>
+
+<body>
+
+  <script>
+    let jam = parseInt(prompt('Masukan Jam'));
+    let menit = parseInt(prompt('Masukan Menit'));
+    let detik = parseInt(prompt('Masukan Detik'));
+
+    let totalDetik = jam * 3600 + menit * 60 + detik;
+
+    totalDetik += 1;
+
+    jam = Math.floor(totalDetik / 3600) % 24;
+    menit = Math.floor((totalDetik % 3600) / 60);
+    detik = totalDetik % 60;
+
+    console.log(`${jam}:${menit}:${detik}`);
+  </script>
+
+</body>
+
+</html>
