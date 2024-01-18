@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input detik</title>
+</head>
+
+<body>
+  <script>
+    let totalDetik = 200;
+    let jam = Math.floor(totalDetik / 3600);
+    let sisaDetik = totalDetik % 3600;
+    let menit = Math.floor(sisaDetik / 60);
+    let detik = sisaDetik % 60;
+
+    console.log(`${jam} jam ${menit} menit ${detik} detik`);
+  </script>
+</body>
+
+</html>

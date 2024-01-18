@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiket terjual</title>
+</head>
+
+<body>
+  <script>
+    const vip = 35;
+    const eksekutif = 15;
+    const ekonomi = 20;
+    let profitVip = 0;
+    let profitEks = 0;
+    let profitEkonomi = 0;
+
+    if (vip > 50 || eksekutif > 50 || ekonomi > 50) {
+      console.log('Nilai tidak valid');
+    } else {
+      if (vip >= 35) {
+        profitVip += 20;
+      } else if (vip >= 20 && vip < 35) {
+        profitVip += 15;
+      } else if (vip < 20) {
+        profitVip += 5;
+      }
+
+      if (eksekutif >= 40) {
+        profitEks += 20;
+      } else if (eksekutif >= 20 && eksekutif < 40) {
+        profitEks += 10;
+      } else if (eksekutif < 20) {
+        profitEks += 2;
+      }
+
+      profitEkonomi += 7;
+
+      console.log(`Total tiket terjual: ${vip + eksekutif + ekonomi}`);
+      console.log(`VIP: Terjual: ${vip}, Keuntungan: ${profitVip}%`);
+      console.log(`Eksekutif: Terjual ${eksekutif}, Keuntungan: ${profitEks}%`);
+      console.log(`Ekonomi: Terjual: ${ekonomi}, Keuntungan: ${profitEkonomi}%`);
+      console.log(`Keuntungan Total: ${profitVip + profitEks + profitEkonomi}%`);
+    }
+  </script>
+
+</body>
+
+</html>
