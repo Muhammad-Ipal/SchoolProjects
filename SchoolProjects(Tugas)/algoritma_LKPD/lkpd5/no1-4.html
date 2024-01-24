@@ -9,40 +9,36 @@
 
 <body>
   <script>
+
+    for (let cetakAngka = 1; cetakAngka <= 10; cetakAngka++) {
+      console.log(cetakAngka);
+    }
+
     ////////////////////////////////////////
 
-    for (let no = 0; no <= 30; no++) {
-      if (no % 2 === 1) {
-        console.log(no, 'Adalah Ganjil');
-      } else if (no % 2 === 0) {
-        console.log(no, 'Adalah Genap');
-      }
+    for (let no = 1; no <= 10; no += 2) {
+      console.log(no, 'Adalah Ganjil');
     }
 
-    let n = 0;
-    while (n <= 30) {
-      if (n % 2 === 1) {
-        console.log(n, 'Adalah Ganjil');
-      } else if (n % 2 === 0) {
-        console.log(n, 'Adalah Genap');
-      }
-      n++;
+    ////////////////////////////////////////
+
+    let n = 1;
+    while (n <= 10) {
+      console.log(n, 'Adalah Genap');
+      n += 2;
     }
+
+    ////////////////////////////////////////
 
     let d = 0;
     do {
-      if (d % 2 === 1) {
+      if (d % 2 !== 0) {
         console.log(d, 'Adalah Ganjil');
       } else if (d % 2 === 0) {
         console.log(d, 'Adalah Genap');
       }
       d++;
-    } while (d <= 30);
-
-    ////////////////////////////////////////
-
-
-
+    } while (d <= 10);
   </script>
 </body>
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juara Kelas</title>
+  <style>
+    body th {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      background-color: rgb(50, 255, 47);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .div-left {
+      width: 300px;
+      display: grid;
+      padding: 10px;
+      background: linear-gradient(145deg, #f57500, #eaff00);
+      margin-right: 10px;
+      border-radius: 7px;
+    }
+
+    .div-left input {
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: rgb(50, 255, 47);
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    .div-right {
+      height: 257px;
+      width: 520px;
+      overflow: auto;
+      border-top: none;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="div-left">
+      <input type="text" id="nama" placeholder="Masukkan Nama" max="12" min="5" required>
+      <input type="number" class="subject" placeholder="MTK" max="2">
+      <input type="number" class="subject" placeholder="Inggris" max="2" required>
+      <input type="number" class="subject" placeholder="B. Indonesia" max="2" required>
+      <input type="number" class="subject" placeholder="DPK" max="2" required>
+      <input type="number" class="subject" placeholder="PAIBP" max="2" required>
+      <input type="number" id="kehadiran" placeholder="Kehadiran (%)" max="100" required>
+      <button id="input" onclick="inputNilai()">Submit</button>
+    </div>
+    <div>
+      <div class="div-right">
+        <table border="1" cellspacing="0" cellpadding="2" style="width: 100%;">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Nama</th>
+              <th style="width: 10%;">MTK</th>
+              <th style="width: 10%;">Inggris</th>
+              <th style="width: 10%;">B. Indo</th>
+              <th style="width: 10%;">DPK</th>
+              <th style="width: 10%;">PAIBP</th>
+              <th style="width: 10%;">Kehadiran</th>
+              <th style="width: 10%;">Total</th>
+            </tr>
+          </thead>
+          <tbody id="resultTableBody" style="text-align: center;"></tbody>
+        </table>
+      </div>
+      <button id="juaraKelas" onclick="juaraKelas()" style="float: right; margin-top: 5px;">Tentukan Juara
+        Kelas</button>
+    </div>
+  </div>
+
+  <script>
+    function inputNilai() {
+      const nama = document.getElementById('nama').value;
+      const kehadiran = parseFloat(document.getElementById('kehadiran').value) || 0;
+      const subjects = document.getElementsByClassName('subject');
+      const total = Array.from(subjects).reduce((sum, subject) => sum + parseFloat(subject.value) || 0, 0);
+
+      if (nama === '' || total === '' || kehadiran === '') {
+        alert('Mohon mengisi semua field');
+        return;
+      }
+
+      const newRow = document.createElement('tr');
+      appendCell(newRow, nama);
+      for (const subject of subjects) {
+        appendCell(newRow, parseFloat(subject.value) || 0);
+      }
+      appendCell(newRow, kehadiran);
+      appendCell(newRow, total);
+
+      document.getElementById('resultTableBody').appendChild(newRow);
+
+      document.getElementById('nama').value = '';
+      document.getElementById('kehadiran').value = '';
+      for (const subject of subjects) {
+        subject.value = '';
+      }
+    }
+
+    function appendCell(row, value) {
+      const cell = document.createElement('td');
+      cell.textContent = value;
+      row.appendChild(cell);
+    }
+
+    function juaraKelas() {
+      let highestTotal = -1;
+      let juaraNama = '';
+
+      const rows = document.getElementById('resultTableBody').getElementsByTagName('tr');
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+
+        const total = parseFloat(cells[1].textContent) +
+          parseFloat(cells[2].textContent) +
+          parseFloat(cells[3].textContent) +
+          parseFloat(cells[4].textContent) +
+          parseFloat(cells[5].textContent);
+
+        if (total > highestTotal && parseFloat(cells[6].textContent) === 100) {
+          highestTotal = total;
+          juaraNama = cells[0].textContent;
+        }
+      }
+
+      if (juaraNama !== '') {
+        alert(`Juara kelas adalah ${juaraNama} dengan total nilai ${highestTotal}`);
+      } else {
+        alert('Tidak ada Juara Kelas');
+      }
+    }
+  </script>
+</body>
+</html>
