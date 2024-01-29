@@ -10,14 +10,15 @@
 <body>
   <script>
 
-    let tempSuhu = parseFloat(prompt('Input Suhu'));
+    let fahrenheit = parseFloat(prompt('Input Suhu'));
+    let celcius = (fahrenheit - 32) * 1.8;
 
-    if (tempSuhu < 250) {
-      console.log(tempSuh, 'Adalah dingin')
-    } else if (tempSuhu >= 250 && tempSuhu <= 300) {
-      console.log(tempSuhu, 'Adalah panas')
+    if (celcius > 250 && celcius <= 300 ) {
+      console.log(celcius, 'Adalah dingin')
+    } else if (celcius > 300) {
+      console.log(celcius, 'Adalah panas')
     } else {
-      console.log('Tidak valid');
+      console.log(celcius, 'Tidak valid');
     }
 
   </script>
