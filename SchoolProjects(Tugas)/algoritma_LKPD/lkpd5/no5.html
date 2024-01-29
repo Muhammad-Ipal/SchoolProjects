@@ -4,31 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nilai</title>
+  <title>Document</title>
 </head>
 
 <body>
-  <script>
+<script>
 
-    const jumlahInput = 5;
-    let inputArray = [];
-    let sum = 0;
+  let max = -Infinity;
+  let min = Infinity;
+  let total = 0;
 
-    for (let i = 1; i <= jumlahInput; i++) {
-      let nilai = parseFloat(prompt(`Input Nilai (${i}/${jumlahInput}):`));
-      inputArray.push(nilai);
-      sum += nilai;
+  for (let i = 0; i < 5; i++) {
+    let bil = parseFloat(prompt('Masukkan Bilangan'));
+
+    if (bil > max) {
+      max = bil;
     }
 
-    console.log("Nilai di Input:", inputArray.join(' - '));
-    console.log("Jumlah nilai:", sum);
+    if (bil < min) {
+      min = bil;
+    }
 
-    let nilaiTerkecil = Math.min(...inputArray);
-    let nilaiTerbesar = Math.max(...inputArray);
+    total += bil;
+  }
 
-    console.log("Nilai Terkecil:", nilaiTerkecil);
-    console.log("Nilai Terbesar:", nilaiTerbesar);
-  </script>
+  let mean = total / 5;
+
+  console.log('Nilai terbesar: ', max);
+  console.log('Nilai terkecil: ', min);
+  console.log('Rata-rata: ', mean);
+
+</script>
+
+
 </body>
 
 </html>

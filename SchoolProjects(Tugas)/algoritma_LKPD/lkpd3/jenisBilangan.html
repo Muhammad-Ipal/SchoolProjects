@@ -11,12 +11,12 @@
   <script>
 
     function tentukanJenisBilangan() {
-      let angka = parseFloat(prompt('Masukkan angka: '));
-      let angkaStr = angka.toString();
+      let angka = prompt('Masukkan angka:');
+      // let angkaStr = angka.toString();
 
-      for (let i = 0; i < angkaStr.length; i++) {
-        let digit = angkaStr[i];
-        let posisi = angkaStr.length - i;
+      for (let i = 0; i < angka.length; i++) {
+        let digit = angka[i];
+        let posisi = angka.length - i;
 
         console.log(`${digit} adalah ${posisi === 1 ? 'satuan' : posisi === 2 ? 'puluhan' : posisi === 3 ? 'ratusan' : 'ribuan'}`);
       }
